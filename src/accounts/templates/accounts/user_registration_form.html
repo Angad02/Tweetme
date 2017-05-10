@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+
+
+{% block title %}Register | {{ block.super }}{% endblock title %}
+{% block content %}
+<div class='row'>
+<div class='col-sm-6 col-sm-offset-3'>
+<h1>Register</h1>
+	<form {% if form_id %} id ='{{ form_id }}' {% endif %} class= 'form' method='POST' action="{% if action_url %}{{ action_url }}{% endif %}">
+	{% csrf_token %}
+	{{ form|crispy }}
+	<input class='btn btn-primary' type="submit" value="Register"/>
+</form>
+	</div>
+</div>
+{% endblock content %}
+
+
+
+
+
+
+
+
+<form {% if form_id %} id ='{{ form_id }}' {% endif %} class= 'form' method='POST' action="{% if action_url %}{{ action_url }}{% endif %}">
+	{% csrf_token %}
+	{{ form|crispy }}
+	<input class='btn btn-primary' type="submit" value="Register"/>
+</form>
